@@ -1,10 +1,10 @@
 name: blemulator_example
 description: Demonstrates how to use the blemulator plugin.
 version: 0.0.1+1
-publish_to: "none"
+publish_to: 'none'
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -14,8 +14,9 @@ dependencies:
   flutter_bloc: ^2.0.0
   equatable: ^0.6.1
   flutter_ble_lib:
-    hosted: https://rezipub.jfrog.io/artifactory/api/pub/pub-local-lantern
-    version: ^2.4.0
+    git:
+      url: git@github.com:resideo/FlutterBleLib.git
+      ref: develop
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -35,6 +36,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
