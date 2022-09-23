@@ -5,10 +5,11 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:3.5.3'
     }
 }
 
@@ -23,7 +24,7 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
 
     defaultConfig {
         minSdkVersion 18
@@ -35,5 +36,6 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.resideo:MultiPlatformBleAdapter:master-SNAPSHOT'
+    // implementation 'com.github.resideo:MultiPlatformBleAdapter:feature~android-create-bond-SNAPSHOT'
+    implementation 'com.github.resideo:MultiPlatformBleAdapter:feature~android-12-SNAPSHOT'
 }
