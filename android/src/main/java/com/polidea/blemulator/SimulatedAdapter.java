@@ -1,5 +1,6 @@
 package com.polidea.blemulator;
 
+import android.content.BroadcastReceiver;
 import android.util.Log;
 import android.util.SparseArray;
 
@@ -693,5 +694,23 @@ public class SimulatedAdapter implements BleAdapter {
     public String getLogLevel() {
         Log.i(TAG, "getLogLevel");
         return logLevel;
+    }
+
+    @Override
+    public void removeBondForDevice(
+            final String deviceIdentifier,
+            String transactionId,
+            final OnSuccessCallback<Device> onSuccessCallback,
+            OnErrorCallback onErrorCallback) {
+        return;
+    }
+
+    @Override
+    public void createBondForDevice(
+            final String deviceIdentifier,
+            String transactionId,
+            final OnSuccessCallback<Boolean> onSuccessCallback,
+            OnErrorCallback onErrorCallback) {
+        return;
     }
 }
