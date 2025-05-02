@@ -14,23 +14,27 @@ import com.polidea.multiplatformbleadapter.BleAdapterFactory;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
-import io.flutter.plugin.common.PluginRegistry;
+import io.flutter.embedding.engine.plugins.FlutterPlugin;
 
-public class BlemulatorPlugin implements MethodCallHandler {
+public class BlemulatorPlugin implements FlutterPlugin, MethodCallHandler {
 
     private DartMethodCaller dartMethodCaller;
     private DartValueHandler dartValueHandler;
 
-    public static void registerWith(PluginRegistry.Registrar registrar) {
-        MethodChannel dartToPlatformChannel = new MethodChannel(registrar.messenger(), ChannelName.TO_PLATFORM);
-        MethodChannel platformToDartChannel = new MethodChannel(registrar.messenger(), ChannelName.TO_DART);
+    @Override
+    public void onAttachedToEngine(@NonNull FlutterPluginBinding binding) {
+        MethodChannel dartToPlatformChannel = new MethodChannel(binding.getBinaryMessenger(), ChannelName.TO_PLATFORM);
+        MethodChannel platformToDartChannel = new MethodChannel(binding.getBinaryMessenger(), ChannelName.TO_DART);
 
-        dartToPlatformChannel.setMethodCallHandler(new BlemulatorPlugin(platformToDartChannel));
-    }
+        dartToPlatformChannel.setMethodCallHandler(this);
 
-    private BlemulatorPlugin(MethodChannel platformToDartChannel) {
         dartMethodCaller = new DartMethodCaller(platformToDartChannel);
         dartValueHandler = new DartValueHandler();
+    }
+
+    @Override
+    public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+
     }
 
     @Override
