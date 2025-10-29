@@ -713,4 +713,15 @@ public class SimulatedAdapter implements BleAdapter {
             OnErrorCallback onErrorCallback) {
         return;
     }
+
+    @Override
+    public void getBondStateForDevice(
+            String deviceIdentifier,
+            String transactionId,
+            OnSuccessCallback<Integer> onSuccessCallback,
+            OnErrorCallback onErrorCallback) {
+        Log.i(TAG, "getBondStateForDevice");
+        // Return BOND_NONE (10) by default for simulation
+        onSuccessCallback.onSuccess(10);
+    }
 }
