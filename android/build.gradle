@@ -4,7 +4,8 @@ version '1.2.1'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        mavenLocal()
         maven { url "https://jitpack.io" }
     }
 
@@ -16,7 +17,8 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        mavenLocal()
         maven { url "https://jitpack.io" }
         maven {
             url = 'https://maven.pkg.github.com/resideo/MultiPlatformBleAdapter'
