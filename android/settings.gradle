@@ -2,4 +2,4 @@ rootProject.name = 'blemulator'
 
 
 include ':multiplatformbleadapter'
-project(':multiplatformbleadapter').projectDir = new File(rootProject.projectDir, '../../MultiplatformBleAdapter/android/library')
+project(':multiplatformbleadapter').projectDir = new File(rootProject.projectDir, '../deps/MultiplatformBleAdapter/android/library')
